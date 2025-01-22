@@ -1,0 +1,92 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.out
+*.tmp
+*.pid
+hs_err_pid*
+replay_pid*
+*.hprof
+
+# Java IDEs
+/.classpath
+/.project
+/.settings/
+/target/
+/build/
+
+# Maven
+.mvn/
+target/
+dependency-reduced-pom.xml
+release.properties
+
+# Gradle
+.gradle/
+/build/
+/out/
+/.gradle/
+/!gradle-wrapper.jar
+*.kts
+
+# Spring Boot
+*.db
+*.env
+*.log
+*.tmp
+*.pid
+*.gz
+/config/*.properties
+/config/*.yaml
+!/src/main/resources/application*.yml
+!/src/main/resources/application*.properties
+/secrets/
+
+# Docker
+*.stack.yml
+*.env
+*.override.yml
+docker-compose.override.yml
+docker-compose.*.yml
+*.tar
+*.lock
+docker-*.log
+Dockerfile*
+
+# Node.js / JavaScript
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# System Files
+.DS_Store
+Thumbs.db
+.idea/
+/.vscode/
+/*.iml
+*.swp
+*.bak
+*~
+
+# Miscellaneous
+*.class
+*.war
+*.ear
+*.log
+*.tmp
+*.gz
+*.zip
+*.tar
+*.rar
+
