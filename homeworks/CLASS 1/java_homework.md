@@ -14,7 +14,7 @@ The deadline for this homework is 8 days after the class. This means that the de
 
 ## Solution
 
-The solution for this homework is in the [solution](solution) folder.
+The solution for this homework is in the [main.java](java_homework/main.java) file.
 
 I used java 17.0.12 from Oracle in WSL2. I used Visual Studio Code as my IDE.
 
