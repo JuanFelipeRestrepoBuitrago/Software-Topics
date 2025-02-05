@@ -1,0 +1,24 @@
+<web-app xmlns="http://jakarta.ee/xml/ns/jakartaee"
+    version="6.0">
+    <display-name>Tarea Vainilla Web Java</display-name>
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>com.eafit.web.HomeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AboutServlet</servlet-name>
+        <servlet-class>com.eafit.web.AboutServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AboutServlet</servlet-name>
+        <url-pattern>/about</url-pattern>
+    </servlet-mapping>
+
+</web-app>
