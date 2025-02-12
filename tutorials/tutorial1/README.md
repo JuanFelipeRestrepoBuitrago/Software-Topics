@@ -124,6 +124,56 @@ The routes are defined in the controllers. The HomeController has the routes for
 
 Create a “/contact” section in which you display the application email, address, and phone number. Use fake information.
 
+#### Answer
+
+![Contact Page](./evidence/activity%202.png)
+
+### Activity 3
+
+Add the (“/products”) route as a new menu option (in the header navbar).
+
+#### Answer
+
+![Products Page](./evidence/activity%203.png)
+
+### Activity 4
+
+Add prices for each product and display the information in the product.show view.
+
+#### Answer
+
+![Product Page](./evidence/activity%204.png)
+
+### Activity 5
+
+Modify the show method. If the product number entered by the URL is not valid, redirect the user to the home page (“home.index”) route.
+
+#### Answer
+
+The code for this activity is in the ProductController.java file. The show method was modified to check if the product exists. If it doesn't exist, the user is redirected to the home page.
+
+```java
+int productId = Integer.parseInt(id) - 1;
+if (productId < 0 || productId >= products.size()) {
+  return "redirect:/";
+}
+```
+
+## Activity 6
+
+Add a conditional in the “product.show” view. If the price of a product is greater than 100, display the product name in red
+
+#### Answer
+
+The code for this activity is in the show.html file. A conditional was added to check if the price of the product is greater than 100. If it is, the product name is displayed in red.
+
+```html
+
+<h5 class="card-title" th:text="${product.name}" th:classappend="${product.price > 100 ? 'text-danger' : ''}"></h5>
+```
+
+![Product Page](./evidence/activity%206.png)
+
 ## Contact
 
 For any questions or issues, feel free to reach out to:

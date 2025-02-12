@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- Bootstrap CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+
+
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+
+
+    <title th:text="${title} ?: 'Contact Us'"></title>
+
+</head>
+
+<body>
+
+    <div th:replace="~{fragments/header :: header}"></div>
+
+
+    <div class="container my-4 d-flex flex-column align-items-center text-center">
+
+        <div class="row w-100 justify-content-center">
+
+            <div class="col-lg-4">
+
+                <p class="lead" th:text="${description}"></p>
+
+            </div>
+
+        </div>
+
+        <div class="row w-100 justify-content-center">
+
+            <div class="col-lg-3">
+
+                <p class="lead" th:text="${email}"></p>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <p class="lead" th:text="${phone}"></p>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <p class="lead" th:text="${address}"></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
+</body>
+
+</html>
