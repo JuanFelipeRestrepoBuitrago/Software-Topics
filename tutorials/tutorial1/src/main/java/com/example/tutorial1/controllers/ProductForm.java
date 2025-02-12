@@ -1,8 +1,8 @@
 package com.example.tutorial1.controllers;
 
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 
 public class ProductForm {
@@ -13,6 +13,7 @@ public class ProductForm {
     @Size(max = 500)
     private String description;
 
+    @Min(value = 1, message = "Price must be at least 1")
     @NotNull(message = "Price is required")
     private Integer price;
 
@@ -38,7 +39,5 @@ public class ProductForm {
 
     public void setPrice(Integer price) {
         this.price = price;
-    }
-} price;
     }
 }

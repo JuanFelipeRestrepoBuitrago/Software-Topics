@@ -80,7 +80,12 @@ public class ProductController {
 
         products.add(product);
 
-        return "redirect:/products";
+        return "redirect:/products/confirmation";
+    }
+
+    @GetMapping("/products/confirmation")
+    public String confirmation() {
+        return "product/confirmation";
     }
 
 }

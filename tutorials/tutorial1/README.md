@@ -205,6 +205,25 @@ The code for this activity is in the ProductForm.java file. The price field is a
 import jakarta.validation.constraints.Min;
 ```
 
+![Product Page Price Less Than Zero](./evidence/activity%208.png)
+
+## Activity 9
+
+If the info entered by the form is valid. Then display a message saying, “Product created”. Note: create a new view (which uses the layout system).
+
+### Answer
+
+The code for this activity is in the ProductController.java file. The save method was modified and when there is no error and a product is created, the confirmation view is redirected.
+
+```java
+products.add(product);
+
+return "redirect:/products/confirmation";
+```
+![Product Page Confirmation](./evidence/activity%209.png)
+
+
+
 ## Contact
 
 For any questions or issues, feel free to reach out to:
