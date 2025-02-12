@@ -8,6 +8,14 @@
   - [Contribution](#contribution)
   - [License](#license)
   - [Contact](#contact)
+  - [Classes](classes)
+    - [Class 3](classes/CLASS%203)
+    - [Class 4](classes/CLASS%204)
+  - [Homeworks](homeworks)
+    - [Class 1](homeworks/CLASS%201)
+    - [Class 3](homeworks/CLASS%203)
+  - [Tutorials](tutorials)
+    - [Tutorial 1](tutorials/tutorial1/README)
 
 ## Authors
 
