@@ -14,6 +14,12 @@
     - [Activity 2](#activity-2)
     - [Activity 3](#activity-3)
     - [Activity 4](#activity-4)
+    - [Activity 5](#activity-5)
+    - [Activity 6](#activity-6)
+    - [Activity 7](#activity-7)
+    - [Activity 8](#activity-8)
+    - [Activity 9](#activity-9)
+    - [Activity 10](#activity-10)
   - [Contact](#contact)
 
 
@@ -54,6 +60,8 @@ This folder contains the project in which the first tutorial of the Special Topi
 │ │ │ │ │ ├── about.html # About page. \
 │ │ │ │ │ └── index.html # Home page. \
 │ │ │ │ ├── product \
+│ │ │ │ │ ├── create.html # Create product page. \
+│ │ │ │ │ ├── confirmation.html # Confirmation page. \
 │ │ │ │ │ ├── index.html # Products page. \
 │ │ │ │ │ └── show.html # Product page. \
 │ │ │ └── application.properties # Application properties. \
@@ -222,7 +230,19 @@ return "redirect:/products/confirmation";
 ```
 ![Product Page Confirmation](./evidence/activity%209.png)
 
+## Activity 10
 
+Add a new menu option in the header (app layout), that links to the “/products/create” page.
+
+### Answer
+
+The code for this activity is in the header.html file. A new menu option was added to the header that links to the /products/create page.
+
+```html
+<a class="nav-link active" th:href="@{/products/create}">Create Products</a>
+```
+
+![Product Page Create](./evidence/activity%2010.png)
 
 ## Contact
 
