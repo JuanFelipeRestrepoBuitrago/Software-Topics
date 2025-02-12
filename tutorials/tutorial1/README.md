@@ -38,6 +38,7 @@ This folder contains the project in which the first tutorial of the Special Topi
 │ │ │ │ ├── example \
 │ │ │ │ │ ├── tutorial1 \
 │ │ │ │ │ │ ├── controllers \
+│ │ │ │ │ │ │ ├── ProductForm.java # Product form. \
 │ │ │ │ │ │ │ ├── HomeController.java # Home controller. \
 │ │ │ │ │ │ │ └── ProductController.java # Product controller. \
 │ │ ├── resources \
@@ -49,6 +50,7 @@ This folder contains the project in which the first tutorial of the Special Topi
 │ │ │ │ │ ├── footer.html # Footer fragment. \
 │ │ │ │ │ └── header.html # Header fragment. \
 │ │ │ │ ├── home \
+│ │ │ │ │ ├── contact.html # Contact page. \
 │ │ │ │ │ ├── about.html # About page. \
 │ │ │ │ │ └── index.html # Home page. \
 │ │ │ │ ├── product \
@@ -173,6 +175,35 @@ The code for this activity is in the show.html file. A conditional was added to 
 ```
 
 ![Product Page](./evidence/activity%206.png)
+
+### Activity 7
+
+Try to understand the previous code. Add a new product but leave the name empty (and click send). Then, leave the price empty. Then, enter the two fields.
+
+### Answer
+
+The code for this activity is in the ProductForm.java file. The ProductForm class is used to validate the product form. The name and price fields are annotated with the @NotEmpty and @NotNull annotations, respectively. This way, the form will not be submitted if the fields are empty. Furthermore, I searched for the difference between the @NotEmpty and @NotNull annotations. The @NotEmpty annotation checks if the field is not null and not empty. The @NotNull annotation checks if the field is not null. So the @NotEmpty annotation is more restrictive than the @NotNull annotation, because if a string is '' or length 0, the @NotEmpty annotation will return false, while the @NotNull annotation will return true.
+
+```java
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
+```
+
+![Product Page Name Empty](./evidence/activity%207%201.png)
+![Product Page Price Empty](./evidence/activity%207%202.png)
+![Product Page Name and Price Empty](./evidence/activity%207%203.png)
+
+## Activity 8
+
+Modify the previous code to only allow numbers greater than zero for the prices.
+
+### Answer
+
+The code for this activity is in the ProductForm.java file. The price field is annotated with the @Min annotation. This way, the form will not be submitted if the price is less than or equal to zero.
+
+```java
+import jakarta.validation.constraints.Min;
+```
 
 ## Contact
 

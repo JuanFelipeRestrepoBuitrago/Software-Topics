@@ -1,6 +1,7 @@
 package com.example.tutorial1.controllers;
 
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
@@ -37,5 +38,7 @@ public class ProductForm {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+} price;
     }
 }
