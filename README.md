@@ -3,24 +3,28 @@
 ## Content Table
 - [Special Topics in Software Engineering Course](#special-topics-in-software-engineering-course)
   - [Content Table](#content-table)
+  - [Content Folders](#content-folders)
   - [Authors](#authors)
   - [Introduction](#introduction)
   - [Contribution](#contribution)
   - [License](#license)
   - [Contact](#contact)
-  - [Classes](classes)
-    - [Class 3](classes/CLASS%203)
-    - [Class 4](classes/CLASS%204)
-  - [Homeworks](homeworks)
-    - [Class 1](homeworks/CLASS%201)
-    - [Class 3](homeworks/CLASS%203)
-  - [Projects](projects)
-    - [1](projects/1)
-      - [Test](projects/1/TEST)
-        - [testJewelryAuction](projects/1/TEST/testJewelryAuction)
-  - [Tutorials](tutorials)
-    - [Tutorial 1](tutorials/tutorial1/README)
-    - [Tutorial 07](tutorials/tutorial07/README)
+
+## Content Folders
+
+- [Classes](classes)
+  - [Class 3](classes/CLASS%203)
+  - [Class 4](classes/CLASS%204)
+- [Homeworks](homeworks)
+  - [Class 1](homeworks/CLASS%201)
+  - [Class 3](homeworks/CLASS%203)
+- [Projects](projects)
+  - [1](projects/1)
+    - [Test](projects/1/TEST)
+      - [testJewelryAuction](projects/1/TEST/testJewelryAuction)
+- [Tutorials](tutorials)
+  - [Tutorial 1](tutorials/tutorial1/README.md)
+  - [Tutorial 07](tutorials/tutorial07/README.md)
 
 ## Authors
 
@@ -30,19 +34,9 @@
 
 This project aims to group all the activities and important information about the Special Topics in Software Engineering Course at EAFIT University. 
 
-## Project Structure
-
-. \
-├── homeworks \
-│ ├── CLASS 1 \
-│ │ ├── README.md # Homework instructions. \
-│ │ └── auth.py # Authentication handling file.
-├── .gitignore # Files that git has to ignore in the repository. \
-└── README.md # Project README. \
-
 ## Setup Instructions
 
-To set up this project, you must follow each BACKEND and FRONTEND README's instructions.
+To set up this project, you must follow each README file in the folders.
 
 ## Contribution
 

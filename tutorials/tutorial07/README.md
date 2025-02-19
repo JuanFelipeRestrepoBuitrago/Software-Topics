@@ -183,7 +183,7 @@ or in case you don't have maven installed:
 
 #### `/products/{id}` route
 
-![Product Route](evidence/product_view.png
+![Product Route](evidence/product_view.png)
 
 #### `/products/{id}` route with comments
 
