@@ -14,8 +14,13 @@
   - [Homeworks](homeworks)
     - [Class 1](homeworks/CLASS%201)
     - [Class 3](homeworks/CLASS%203)
+  - [Projects](projects)
+    - [1](projects/1)
+      - [Test](projects/1/TEST)
+        - [testJewelryAuction](projects/1/TEST/testJewelryAuction)
   - [Tutorials](tutorials)
     - [Tutorial 1](tutorials/tutorial1/README)
+    - [Tutorial 07](tutorials/tutorial07/README)
 
 ## Authors
 
