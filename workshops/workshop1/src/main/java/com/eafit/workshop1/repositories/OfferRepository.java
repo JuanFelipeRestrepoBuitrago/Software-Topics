@@ -3,6 +3,7 @@ package com.eafit.workshop1.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import com.eafit.workshop1.models.Offer;
+import java.util.List;
 
 /**
  * Interface that provides methods to interact with the database and the Offer table
@@ -16,5 +17,12 @@ import com.eafit.workshop1.models.Offer;
  * @author Juan Felipe Restrepo Buitrago
  */
 @Repository
-public interface OfferRepository extends JpaRepository<Product, Long> {
+public interface OfferRepository extends JpaRepository<Offer, Long> {
+     /**
+     * Finds all offers with the specified state.
+     *
+     * @param state the state of the offers to find.
+     * @return a list of offers with the specified state.
+     */
+    List<Offer> findByState(boolean state);
 }

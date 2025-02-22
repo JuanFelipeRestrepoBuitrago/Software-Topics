@@ -4,8 +4,8 @@ import com.eafit.workshop1.models.Offer;
 import com.eafit.workshop1.repositories.OfferRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Date;
+import java.util.List;
 
 /**
  * Service class that provides methods to interact with the database and the Offer table.
@@ -47,9 +47,7 @@ public class OfferService {
      * @throws IllegalArgumentException if the offer price is less than 0, the auction name is null or empty or the offer price is lower than the current offer price.
      */
     public void createOffer(int offerPrice, String auction) throws IllegalArgumentException {
-        if (offerPrice < 0) {
-            throw new IllegalArgumentException("The offer price must be greater than or equal to 0");
-        } else if (auction == null || auction.isEmpty()) {
+        if (auction == null || auction.isEmpty()) {
             throw new IllegalArgumentException("The auction name must not be null or empty");
         }
 
