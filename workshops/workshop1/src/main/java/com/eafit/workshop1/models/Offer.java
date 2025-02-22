@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.util.Date;
+
 
 /**
  * Represents an offer made by a user for an auction.
