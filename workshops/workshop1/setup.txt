@@ -1,0 +1,116 @@
+## Setup Instructions
+
+### Versions
+
+This were the versions used to develop the project:
+
+- Java 21
+- Maven 3.9.9 (Optional)
+- Spring Boot 3.4.2 (Optional)
+
+### Requirements
+
+To run this project you will need mysql running on your machine in the `localhost:3306` with a database named `workshop1_teis` and a user with the following credentials: `username: root` and `password: 123`.
+
+You can run mysql and phpmyadmin with the following `docker-compose.yaml` file in the project root:
+
+```bash
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.4.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+    ports:
+      - "3306:3306"
+    networks:
+      - mysql_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin-container
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - "8081:80"
+    networks:
+      - mysql_network
+
+volumes:
+  mysql_instance_data:
+
+networks:
+  mysql_network:
+    driver: bridge
+```
+
+1. Go to the workshop1 folder:
+```bash
+cd $PROJECT_PATH/workshops/workshop1
+```
+2. Run the docker compose file:
+```bash
+docker-compose up
+```
+3. Open your browser and go to http://localhost:8081
+4. Log in with the following credentials:
+```bash
+username: root
+password: 123
+```
+5. Create a new database named `workshop1_teis`
+6. Once you have finished running the project, you can stop the containers by running in the workshop1 folder:
+```bash
+docker-compose down
+```
+
+### Execution
+
+To run follow these steps:
+
+1. Clone the repository (If you already have the project, skip this step):
+
+SSH
+```bash
+git clone git@github.com:JuanFelipeRestrepoBuitrago/Software-Topics.git
+```
+or HTTP
+
+```bash
+git clone https://github.com/JuanFelipeRestrepoBuitrago/Software-Topics.git
+```
+
+2. Go to the workshop1 folder:
+
+```bash
+cd $PROJECT_PATH/workshops/workshop1
+```
+
+3. (Optional) To avoid dependency problems, run the following command:
+
+```bash
+mvn clean install
+```
+or in case you don't have maven installed:
+
+```bash
+./mvnw clean install
+```
+
+4. Run the project:
+
+```bash
+mvn spring-boot:run
+```
+or in case you don't have maven installed:
+
+```bash
+./mvnw spring-boot:run
+```
+
+5. Open the browser and go to http://localhost:8080/

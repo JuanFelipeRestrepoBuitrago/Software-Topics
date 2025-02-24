@@ -175,12 +175,13 @@ docker-compose down
 
 To run follow these steps:
 
-1. Clone the repository:
+1. Clone the repository (If you already have the project, skip this step):
 
+SSH
 ```bash
 git clone git@github.com:JuanFelipeRestrepoBuitrago/Software-Topics.git
 ```
-or
+or HTTP
 
 ```bash
 git clone https://github.com/JuanFelipeRestrepoBuitrago/Software-Topics.git
@@ -196,6 +197,11 @@ cd $PROJECT_PATH/workshops/workshop1
 
 ```bash
 mvn clean install
+```
+or in case you don't have maven installed:
+
+```bash
+./mvnw clean install
 ```
 
 4. Run the project:
