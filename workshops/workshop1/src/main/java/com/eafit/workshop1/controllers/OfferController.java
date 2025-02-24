@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.validation.BindingResult;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.eafit.workshop1.models.Offer;
 import com.eafit.workshop1.dto.OfferForm;
 import com.eafit.workshop1.services.OfferService;
 
@@ -86,6 +89,23 @@ public class OfferController {
         model.addAttribute("offers", offerService.getAllOffers());
         
         return "offers/index";
+    }
+
+    @GetMapping("/{id}")
+    public String show(@PathVariable String id, Model model) {
+
+        int offerId = Integer.parseInt(id) - 1;
+        Offer offer = offerService.getAllOffers().get(offerId);
+
+        // If the offer does not exist redirect to the offers index
+        if (offer == null) {
+            return "redirect:/offers";
+        }
+
+        model.addAttribute("title", offer.getAuction() + " - Herzone");
+        model.addAttribute("offer", offer);
+        
+        return "offers/offer";
     }
     
 }

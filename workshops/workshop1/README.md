@@ -255,9 +255,21 @@ The list of offers is displayed in the `/offers` route. The list contains the id
 
 Display the complete information (all values of all attributes) of the object clicked in activity 4, also create a button leading to activity 6.
 
+#### Answer
+
+The complete information of the object clicked in activity 4 is displayed in the `/offers/{id}` route. The view contains all the attributes of the offer.
+
+![Offer Details](evidence/Activity%205.png)
+
 ### Activity 6
 
 Delete the object clicked in activity 5 and redirect to the list objects section.
+
+#### Answer
+
+When the delete button is clicked in the offer details view, the offer is deleted from the database and the user is redirected to the offers list view.
+
+![Offer Deleted](evidence/Activity%206.png)
 
 ## Contact
 

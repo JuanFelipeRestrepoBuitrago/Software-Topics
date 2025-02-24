@@ -85,4 +85,14 @@ public class OfferService {
     public List<Offer> getAllOffers() {
         return offerRepository.findAll();
     }
+
+    /**
+     * Method that returns the offer with the specified id.
+     * 
+     * @param id the id of the offer to be returned.
+     * @return the offer with the specified id.
+     */
+    public Offer getOfferById(Long id) {
+        return offerRepository.findById(id).orElse(null);
+    }
 }
