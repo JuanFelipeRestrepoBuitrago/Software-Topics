@@ -2,7 +2,6 @@ package com.eafit.workshop1.services;
 
 import com.eafit.workshop1.models.Offer;
 import com.eafit.workshop1.repositories.OfferRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Date;
 import java.util.List;
@@ -34,7 +33,6 @@ public class OfferService {
      * @param offerRepository 
      * object used to interact with the database and the Offer table.
      */
-    @Autowired
     public OfferService(OfferRepository offerRepository) {
         this.offerRepository = offerRepository;
     }
@@ -46,7 +44,7 @@ public class OfferService {
      * @param auction the name of the auction for which the offer was made.
      * @throws IllegalArgumentException if the offer price is less than 0, the auction name is null or empty or the offer price is lower than the current offer price.
      */
-    public void createOffer(int offerPrice, String auction) throws IllegalArgumentException {
+    public void createOffer(double offerPrice, String auction) throws IllegalArgumentException {
         if (auction == null || auction.isEmpty()) {
             throw new IllegalArgumentException("The auction name must not be null or empty");
         }
@@ -61,7 +59,7 @@ public class OfferService {
                 // Save the current offer
                 offerRepository.save(offer);
             } else {
-                throw new IllegalArgumentException("The offer price must be higher than the current offer price");
+                throw new IllegalArgumentException("The offer price must be higher than the current offer price $" + offer.getOfferPrice());
             }
         }
         // Get the current date

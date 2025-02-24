@@ -30,6 +30,12 @@ body {
 
 }
 
+.bg-third {
+
+    background-color: #9e9912 !important;
+
+}
+
 .copyright {
 
     background-color: #c9c21b;
@@ -54,4 +60,24 @@ nav {
 
     font-weight: 700;
 
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+}
+
+.btn-primary {
+    background-color: #156d20;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.btn-primary:hover {
+    background-color: #125f1c;
+}
+
+.form-control {
+    border-radius: 5px;
 }

@@ -219,6 +219,18 @@ The initial view is displayed in the home page. The view contains two buttons th
 
 ### Activity 2
 
+Display a form to the user that receives all the data required for the creation of the class. Forget about including data corresponding to non-primitive attributes (representing relationships). Omit for this workshop any connection with other classes in your class diagram. Focus only on the chosen class and its primitive attributes.
+
+#### Answer
+
+The form to create an offer is displayed in the `/offers/create` route. The form contains the following fields:
+- Offer price
+- Auction
+
+The other fields are set by default or internally in the application.
+
+![Create Offer](evidence/Activity%202.png)
+
 ### Activity 3
 
 ### Activity 4

@@ -35,7 +35,7 @@ public class Offer {
     /**
      * The price offered by the user.
      */
-    private int offerPrice;
+    private double offerPrice;
     /**
      * The state of the offer. True if the offer is active, false otherwise.
      */
@@ -54,7 +54,7 @@ public class Offer {
      * @param state the state of the offer.
      * @param auction the name of the auction for which the offer was made.
      */
-    public Offer(Date createdAt, int offerPrice, boolean state, String auction) {
+    public Offer(Date createdAt, double offerPrice, boolean state, String auction) {
         this.auction = auction;
         this.createdAt = createdAt;
         this.offerPrice = offerPrice;
@@ -68,7 +68,7 @@ public class Offer {
      * @param offerPrice the price offered by the user.
      * @param state the state of the offer.
      */
-    public Offer(Date createdAt, int offerPrice, boolean state) {
+    public Offer(Date createdAt, double offerPrice, boolean state) {
         this.auction = "Example Auction";
         this.createdAt = createdAt;
         this.offerPrice = offerPrice;
@@ -107,7 +107,7 @@ public class Offer {
      *
      * @return the price offered by the user.
      */
-    public int getOfferPrice() {
+    public double getOfferPrice() {
         return offerPrice;
     }
 
@@ -140,7 +140,7 @@ public class Offer {
      * Sets the Offer Price of the Offer
      * @param offerPrice the price offered by the user.
      */
-    public void setOfferPrice(int offerPrice) {
+    public void setOfferPrice(double offerPrice) {
         this.offerPrice = offerPrice;
     }
 

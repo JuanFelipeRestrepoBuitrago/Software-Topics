@@ -6,26 +6,53 @@
 <body>
     <div th:replace="~{fragments/header :: header}"></div>
 
-    <div class="container-fluid full-height bg-primary">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card bg-secondary">
-                    <div class="bg-secondary text-primary card-header">Create Offer</div>
-                    <div class="card-body">
-                        <form th:action="@{/offers/create}" method="post"> 
-                            <label for="auction">Auction:</label> 
-                            <input type="text" id="auction" name="auction"/><br><br>
-                            <label for="offerPrice">Offer Price:</label>
-                            <input type="number" id="offerPrice" name="offerPrice"/><br><br>
-                            <button type="submit">Save</button>
-                        </form>
+    <div class="container-fluid full-height bg-primary d-flex justify-content-center align-items-center">
+        
+        <div class="row justify-content-center w-100">
+            <div class="col-md-6 col-lg-4">
+                <form th:action="@{/offers/create}" method="post" th:object="${offerForm}">
+
+                    <div th:if="${#fields.hasErrors('*')}" id="errorAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-exclamation-circle-fill me-2"></i>
+                            <strong>Oops! Please fix the following errors:</strong>
+                        </div>
+                        <ul class="list-group list-group-flush mt-2">
+                            <li th:each="err : ${#fields.errors('*')}" th:text="${err}" class="list-group-item text-danger bg-transparent border-0"></li>
+                        </ul>
+                        <button onclick="dismissError()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
-                </div>
+                    
+                    <div class="card shadow-lg">
+                        <div class="card-header bg-secondary text-primary text-center">
+                            <h4 class="mb-0">Create Offer</h4>
+                        </div>
+                        <div class="card-body bg-third p-4">
+                            <div class="mb-3">
+                                <label for="auction" class="form-label">Auction:</label>
+                                <input type="text" id="auction" name="auction" class="form-control" required th:field="*{auction}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="offerPrice" class="form-label">Offer Price:</label>
+                                <input type="number" id="offerPrice" name="offerPrice" class="form-control" required th:field="*{offerPrice}">
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
     <div th:replace="~{fragments/footer :: footer}"></div>
+
+    <script>
+        function dismissError() {
+            document.getElementById("errorAlert").style.display = "none";
+        }
+    </script>
 </body>
 
 </html>
