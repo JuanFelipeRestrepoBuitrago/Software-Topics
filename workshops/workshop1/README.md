@@ -242,9 +242,22 @@ When the form is submitted, the data is stored in the database and a message is 
 
 ### Activity 4
 
+List the objects of the class with only 2 attributes, their id and their name or another attribute that helps to easily identify each object, and place a link to the id of each object that leads to activity 5.
+
+#### Answer
+
+The list of offers is displayed in the `/offers` route. The list contains the id and the auction of each offer. 
+
+![Offers List](evidence/Activity%204.png)
+![Offers List with New Object](evidence/Activity%204_add.png)
+
 ### Activity 5
 
+Display the complete information (all values of all attributes) of the object clicked in activity 4, also create a button leading to activity 6.
+
 ### Activity 6
+
+Delete the object clicked in activity 5 and redirect to the list objects section.
 
 ## Contact
 

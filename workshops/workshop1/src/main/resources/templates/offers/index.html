@@ -7,9 +7,9 @@
     <div th:replace="~{fragments/header :: header}"></div>
 
     <div class="container-fluid full-height bg-primary d-flex justify-content-center align-items-center">
-        
         <div class="row justify-content-center w-100">
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-8 col-lg-6">
+                <!-- Success Message Alert -->
                 <div th:if="${messageSuccess}" id="successAlert" class="alert alert-success alert-dismissible fade show" role="alert">
                     <div class="d-flex align-items-center">
                         <i class="bi bi-exclamation-circle-fill me-2"></i>
@@ -19,6 +19,20 @@
                         <li class="list-group-item text-success bg-transparent border-0">Your offer has been created successfully!</li>
                     </ul>
                     <button onclick="dismissMessage()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                <!-- Offers List as Cards -->
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <div class="col" th:each="offer : ${offers}">
+                        <div class="card h-100 shadow-lg" th:onclick="|window.location.href='/offers/' + ${offer.getId}|" style="cursor: pointer;">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <strong>ID:</strong> <span th:text="${offer.getId}"></span><br>
+                                    <strong>Auction:</strong> <span th:text="${offer.getAuction}"></span><br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
