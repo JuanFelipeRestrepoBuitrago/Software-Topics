@@ -6,7 +6,7 @@
 
         <div class="container">
 
-            <a class="navbar-brand" th:href="@{/}">Herzon</a>
+            <a class="navbar-brand text-white" th:href="@{/}">Herzon</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,11 +19,11 @@
 
                 <div class="navbar-nav ms-auto">
 
-                    <a class="nav-link active" th:href="@{/}">Home</a>
+                    <a class="nav-link active text-white" th:href="@{/}">Home</a>
 
-                    <a class="nav-link active" th:href="@{/offers}">Offers</a>
+                    <a class="nav-link active text-white" th:href="@{/offers}">Offers</a>
 
-                    <a class="nav-link active" th:href="@{/offers/create}">Create Offer</a>
+                    <a class="nav-link active text-white" th:href="@{/offers/create}">Create Offer</a>
 
                 </div>
 
@@ -32,16 +32,5 @@
         </div>
 
     </nav>
-
-
-    <header class="masthead bg-primary text-white text-center py-4">
-
-        <div class="container d-flex align-items-center flex-column">
-
-            <h2 th:text="${subtitle} ?: 'A Spring Boot EAFIT App'"></h2>
-
-        </div>
-
-    </header>
 
 </th:block>

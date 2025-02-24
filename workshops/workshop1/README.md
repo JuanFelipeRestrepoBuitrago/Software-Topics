@@ -1,7 +1,7 @@
-# Tutorial 07: Spring Boot Controllers and Views
+# Workshop 1: CRUD Offers with Spring Boot
 
 ## Content Table
-- [Workshop 1: CRUD](#tutorial-07-spring-boot-controllers-and-views)
+- [Workshop 1: CRUD Offers with Spring Boot](#workshop-1-crud-offers-with-spring-boot)
   - [Content Table](#content-table)
   - [Authors](#authors)
   - [Introduction](#introduction)
@@ -11,12 +11,12 @@
     - [Requirements](#requirements)
     - [Execution](#execution)
   - [Activities](#activities)
-    - [Tutorial Evidence](#tutorial-evidence)
-      - [`/products` route](#products-route)
-      - [`/products/create` route](#productscreate-route)
-      - [`/products/{id}` route](#productsid-route)
-      - [`/products/{id}` route with comments](#productsid-route-with-comments)
-    - [Activity](#activity)
+    - [Activity 1](#activity-1)
+    - [Activity 2](#activity-2)
+    - [Activity 3](#activity-3)
+    - [Activity 4](#activity-4)
+    - [Activity 5](#activity-5)
+    - [Activity 6](#activity-6)
   - [Contact](#contact)
 
 
@@ -26,7 +26,22 @@
 
 ## Introduction
 
-This folder contains the project in which the 07 tutorial of the Special Topics in Software Engineering Course is developed. This tutorial is about the creation of a Spring Boot views, models and controllers. Furthermore, we learnt how to connect a database to spring boot and how to manage the models correctly in the application. 
+This folder contains the project in which the first workshop of the Special Topics in Software Engineering Course is developed. This project is a Spring Boot application that uses Thymeleaf as a template engine to render views. The application is a CRUD for offers, which are stored in a MySQL database. The selected class to represent the offers is the `Offer` class, which is a class for our first project in the course and with this first approach I will have to implement just the primitive attributes, not relations or anything like that. Offer class:
+
+```java
+class Offer{
+ - created_at: Date
+ - user: User
+ - auction: Auction
+ - offer_price: int
+ - state: boolean
+ 
+ + create_offer(user: User, auction: Auction, offer_price: int): void
+ + delete_offer(): void
+ + setters()
+ + getters() 
+}
+```
 
 ## Project Structure
 
@@ -40,17 +55,17 @@ This folder contains the project in which the 07 tutorial of the Special Topics 
 │ │ ├── java \
 │ │ │ ├── com \
 │ │ │ │ ├── eafit \
-│ │ │ │ │ ├── tutorial07 \
+│ │ │ │ │ ├── workshop1 \
 │ │ │ │ │ │ ├── controllers \
-│ │ │ │ │ │ │ ├── CommentController.java # Comments controller. \
+│ │ │ │ │ │ │ ├── HomeController.java # Home controller. \
 │ │ │ │ │ │ │ └── ProductController.java # Products controller. \
 │ │ │ │ │ │ ├── models \
-│ │ │ │ │ │ │ ├── CommentController.java # Comments controller. \
-│ │ │ │ │ │ │ └── ProductController.java # Products controller. \
+│ │ │ │ │ │ │ └── Offer.java # Offer model. \
 │ │ │ │ │ │ ├── repositories \
-│ │ │ │ │ │ │ ├── CommentRepository.java # Comments repository. \
-│ │ │ │ │ │ │ └── ProductRepository.java # Products repository. \
-│ │ │ │ │ │ └── Tutorial07Application.java # Application main class. \
+│ │ │ │ │ │ │ └── OfferRepository.java # Offers repository. \
+│ │ │ │ │ │ ├── services \
+│ │ │ │ │ │ │ └── OfferService.java # Offer service. \
+│ │ │ │ │ │ └── Workshop1Application.java # Application main class. \
 │ │ ├── resources \
 │ │ │ ├── static \
 │ │ │ │ ├── css \
@@ -58,18 +73,19 @@ This folder contains the project in which the 07 tutorial of the Special Topics 
 │ │ │ ├── templates \
 │ │ │ │ ├── fragments \
 │ │ │ │ │ ├── footer.html # Footer fragment. \
+│ │ │ │ │ ├── head.html # Head fragment. \
 │ │ │ │ │ └── header.html # Header fragment. \
-│ │ │ │ ├── product \
-│ │ │ │ │ ├── create.html # Create product page. \
-│ │ │ │ │ ├── index.html # Products page. \
-│ │ │ │ │ └── show.html # Product page. \
+│ │ │ │ ├── home \
+│ │ │ │ │ └── index.html # Home page. \
 │ │ │ └── application.properties # Application properties. \
 │ ├── test \
 │ │ ├── java \
 │ │ │ ├── com \
 │ │ │ │ ├── eafit \
-│ │ │ │ │ ├── tutorial07 \
-│ │ │ │ │ │ └── Tutorial07ApplicationTests.java # Application tests. \
+│ │ │ │ │ ├── workshop1 \
+│ │ │ │ │ │ ├── services \
+│ │ │ │ │ │ │ └── OfferServiceTest.java # Offer service test. \
+│ │ │ │ │ │ └── Workshop1ApplicationTests.java # Application tests. \
 ├── docker-compose.yaml # Docker compose file. \
 ├── .gitignore # Git ignore file. \
 ├── HELP.md # Help file. \
@@ -90,9 +106,9 @@ This were the versions used to develop the project:
 
 ### Requirements
 
-To run this project you will need mysql running on your machine in the `localhost:3306` with a database named `tutorial07_teds` and a user with the following credentials: `username: root` and `password: 123`.
+To run this project you will need mysql running on your machine in the `localhost:3306` with a database named `workshop1_teis` and a user with the following credentials: `username: root` and `password: 123`.
 
-You can run mysql and phpmyadmin with the following `docker-compose.yaml` file and running the following command:
+You can run mysql and phpmyadmin with the following `docker-compose.yaml` file in the project root:
 
 ```bash
 version: '3.8'
@@ -129,11 +145,25 @@ networks:
     driver: bridge
 ```
 
+1. Go to the workshop1 folder:
 ```bash
-cd $PROJECT_PATH/tutorials/tutorial07
-docker-compose up -d
+cd $PROJECT_PATH/workshops/workshop1
 ```
-
+2. Run the docker compose file:
+```bash
+docker-compose up
+```
+3. Open your browser and go to http://localhost:8081
+4. Log in with the following credentials:
+```bash
+username: root
+password: 123
+```
+5. Create a new database named `workshop1_teis`
+6. Once you have finished running the project, you can stop the containers by running in the workshop1 folder:
+```bash
+docker-compose down
+```
 
 ### Execution
 
@@ -150,13 +180,19 @@ or
 git clone https://github.com/JuanFelipeRestrepoBuitrago/Software-Topics.git
 ```
 
-2. Go to the tutorial 1 folder:
+2. Go to the workshop1 folder:
 
 ```bash
-cd $PROJECT_PATH/tutorials/tutorial07
+cd $PROJECT_PATH/workshops/workshop1
 ```
 
-3. Run the project:
+3. (Optional) To avoid dependency problems, run the following command:
+
+```bash
+mvn clean install
+```
+
+4. Run the project:
 
 ```bash
 mvn spring-boot:run
@@ -167,94 +203,29 @@ or in case you don't have maven installed:
 ./mvnw spring-boot:run
 ```
 
-4. Open the browser and go to http://localhost:8080/products
+5. Open the browser and go to http://localhost:8080/
 
 ## Activities
-
-### Tutorial Evidence
-
-#### `/products` route
-
-![Products Route](evidence/products.png)
-
-#### `/products/create` route
-
-![Create Product Route](evidence/create_products.png)
-
-#### `/products/{id}` route
-
-![Product Route](evidence/product_view.png)
-
-#### `/products/{id}` route with comments
-
-![Product Route with Comments](evidence/product_comments.png)
  
-### Activity
+### Activity 1
 
-Complete the code to save comments in the database with the proposed form in the product view.
+Display an initial view with 2 buttons/links leading to activities 2 and 4.
 
 #### Answer
-I had to modify and add some things in the project to reach the desired functionality. 
 
-1. I added the `Comment` class in the `ProductController` class. The code is shown below:
+The initial view is displayed in the home page. The view contains two buttons that lead to the `/offers` and `/offers/create` routes.
 
-```java
-import com.eafit.tutorial07.models.Comment;
-```
+![Home Page](evidence/Activity%201.png)
 
-2. I created the `CommentController` class to save the comments in the database. The code is shown below:
+### Activity 2
 
-```java
-package com.eafit.tutorial07.controllers;
+### Activity 3
 
-import com.eafit.tutorial07.models.Comment;
-import com.eafit.tutorial07.models.Product;
-import com.eafit.tutorial07.repositories.CommentRepository;
-import com.eafit.tutorial07.repositories.ProductRepository;
+### Activity 4
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+### Activity 5
 
-@Controller
-@RequestMapping("/products/{id}/comments")
-public class CommentController {
-
-    @Autowired
-    private CommentRepository commentRepository;
-
-    @Autowired
-    private ProductRepository productRepository;
-
-    @PostMapping
-    public String saveComment(@PathVariable Long id, Comment comment) {
-        // Validaciones mínimas
-        if (comment.getDescription() == null || comment.getDescription().isEmpty()) {
-            throw new RuntimeException("Description is required");
-        }
-        // Get the product with the given id
-        Product product = productRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Product with id " + id + " not found"));
-
-        // Add the comment to the product
-        comment.setProduct(product);
-
-        // Save the comment
-        commentRepository.save(comment);
-
-        return "redirect:/products/" + id;
-    }
-}
-```
-
-3. I modified the `/products/{id}` route mapped to the `show` method in the `ProductController` class to add the comments to the product. The code is shown below:
-
-```java
-model.addAttribute("comment", new Comment());
-```
+### Activity 6
 
 ## Contact
 

@@ -9,11 +9,15 @@
     <div th:replace="~{fragments/header :: header}"></div>
 
 
-    <div class="container my-4">
+    <div class="container-fluid full-height bg-primary">
 
         <div class="text-center">
 
-            Welcome to the Online Store App for Tutorial 1!
+            <h1 class="display-1 mt-5 text-white">Welcome to Herzon</h1>
+            <div class="mt-5">
+                <a class="btn btn-primary bg-secondary text-primary fw-bold" th:href="@{/offers}">Check our offers</a>
+                <a class="btn btn-primary bg-secondary text-primary fw-bold" th:href="@{/offers/create}">Create an offer</a>
+            </div>
 
         </div>
 
