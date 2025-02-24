@@ -22,6 +22,12 @@
                             <span th:if="${offer.getState}" class="badge bg-success">Active</span>
                             <span th:unless="${offer.getState}" class="badge bg-danger">Inactive</span>
                         </p>
+
+                        <!-- Delete Button Form -->
+                        <form th:action="@{/offers/{id}/delete(id=${offer.getId})}" method="post" onsubmit="return confirm('Are you sure you want to delete this offer?');">
+                            <input type="hidden" name="_method" value="delete" /> <!-- For HTTP DELETE method -->
+                            <button type="submit" class="btn btn-danger w-100">Delete Offer</button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -59,6 +59,8 @@ class Offer{
 │ │ │ │ │ │ ├── controllers \
 │ │ │ │ │ │ │ ├── HomeController.java # Home controller. \
 │ │ │ │ │ │ │ └── ProductController.java # Products controller. \
+│ │ │ │ │ │ ├── dto \
+│ │ │ │ │ │ │ └── OfferForm.java # Offer Form Model. \
 │ │ │ │ │ │ ├── models \
 │ │ │ │ │ │ │ └── Offer.java # Offer model. \
 │ │ │ │ │ │ ├── repositories \
@@ -77,6 +79,10 @@ class Offer{
 │ │ │ │ │ └── header.html # Header fragment. \
 │ │ │ │ ├── home \
 │ │ │ │ │ └── index.html # Home page. \
+│ │ │ │ ├── offers \
+│ │ │ │ │ ├── create.html # Create offer page. \
+│ │ │ │ │ ├── index.html # Offers list page. \
+│ │ │ │ │ └── offer.html # Offer details page. \
 │ │ │ └── application.properties # Application properties. \
 │ ├── test \
 │ │ ├── java \

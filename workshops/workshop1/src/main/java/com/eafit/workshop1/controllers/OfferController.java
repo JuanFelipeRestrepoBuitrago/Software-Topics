@@ -2,6 +2,7 @@ package com.eafit.workshop1.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -79,10 +80,15 @@ public class OfferController {
             return "offers/create";
         }
 
-        redirectAttributes.addFlashAttribute("messageSuccess", true);
+        redirectAttributes.addFlashAttribute("messageAddSuccess", true);
         return "redirect:/offers";
     }
 
+    /**
+     * This method handles the requests for the offers index page.
+     * @param model The model object to pass data to the
+     * @return The name of the view to render
+     */
     @GetMapping("")
     public String index(Model model) {
         model.addAttribute("title", "Offers - Herzon");
@@ -91,11 +97,17 @@ public class OfferController {
         return "offers/index";
     }
 
+    /**
+     * This method handles the requests for the offer page.
+     * @param id The id of the offer to show
+     * @param model The model object to pass data to the
+     * @return The name of the view to render
+     */
     @GetMapping("/{id}")
     public String show(@PathVariable String id, Model model) {
 
-        int offerId = Integer.parseInt(id) - 1;
-        Offer offer = offerService.getAllOffers().get(offerId);
+        long offerId = Long.parseLong(id);
+        Offer offer = offerService.getOfferById(offerId);
 
         // If the offer does not exist redirect to the offers index
         if (offer == null) {
@@ -106,6 +118,22 @@ public class OfferController {
         model.addAttribute("offer", offer);
         
         return "offers/offer";
+    }
+
+    /**
+     * This method handles the requests for the offer delete action.
+     * @param id
+     * @param redirectAttributes
+     * @return
+     */
+    @DeleteMapping("/{id}/delete")
+    public String delete(@PathVariable String id, RedirectAttributes redirectAttributes) {
+        Long offerId = Long.parseLong(id);
+        offerService.deleteOffer(offerId);
+
+        redirectAttributes.addFlashAttribute("messageDeleteSuccess", true);
+
+        return "redirect:/offers";
     }
     
 }

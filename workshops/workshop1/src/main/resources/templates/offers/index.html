@@ -10,13 +10,16 @@
         <div class="row justify-content-center w-100">
             <div class="col-md-8 col-lg-6">
                 <!-- Success Message Alert -->
-                <div th:if="${messageSuccess}" id="successAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+                <div th:if="${(messageAddSuccess != null and messageAddSuccess) or (messageDeleteSuccess != null and messageDeleteSuccess)}" id="successAlert" class="alert alert-success alert-dismissible fade show" role="alert">
                     <div class="d-flex align-items-center">
                         <i class="bi bi-exclamation-circle-fill me-2"></i>
                         <strong>Congratulations!</strong>
                     </div>
                     <ul class="list-group list-group-flush mt-2">
-                        <li class="list-group-item text-success bg-transparent border-0">Your offer has been created successfully!</li>
+                        <li class="list-group-item text-success bg-transparent border-0">
+                            <span th:if="${messageAddSuccess}">Your offer has been created successfully!</span>
+                            <span th:if="${messageDeleteSuccess}">Your offer has been deleted successfully!</span>
+                        </li>
                     </ul>
                     <button onclick="dismissMessage()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
