@@ -90,7 +90,7 @@ public class OfferServiceTest {
         });
 
         // Verify the exception message
-        assertEquals("The offer price must be higher than the current offer price", exception.getMessage());
+        assertEquals("The offer price must be higher than the current offer price $100.0", exception.getMessage());
 
         // Verify repository interactions
         verify(offerRepository, times(1))

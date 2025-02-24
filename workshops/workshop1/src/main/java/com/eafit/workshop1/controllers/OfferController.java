@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.validation.BindingResult;
 import jakarta.validation.Valid;
@@ -58,7 +59,7 @@ public class OfferController {
      * @return The name of the view to render
      */
     @PostMapping("/create")
-    public String createFormSubmission(@Valid @ModelAttribute("offerForm") OfferForm offerForm, BindingResult result, Model model) {
+    public String createFormSubmission(@Valid @ModelAttribute("offerForm") OfferForm offerForm, BindingResult result, RedirectAttributes redirectAttributes, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("title", "Create Offer - Herzon");
             
@@ -74,9 +75,15 @@ public class OfferController {
             model.addAttribute("title", "Create Offer - Herzon");
             return "offers/create";
         }
-        return "redirect:/";
-    }
-    
 
+        redirectAttributes.addFlashAttribute("messageSuccess", true);
+        return "redirect:/offers";
+    }
+
+    @GetMapping("")
+    public String index(Model model) {
+        model.addAttribute("title", "Offers - Herzon");
+        return "offers/index";
+    }
     
 }

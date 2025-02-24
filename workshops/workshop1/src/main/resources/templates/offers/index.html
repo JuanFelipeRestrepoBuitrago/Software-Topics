@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="~{fragments/head :: head}"></div>
+
+<body>
+    <div th:replace="~{fragments/header :: header}"></div>
+
+    <div class="container-fluid full-height bg-primary d-flex justify-content-center align-items-center">
+        
+        <div class="row justify-content-center w-100">
+            <div class="col-md-6 col-lg-4">
+                <div th:if="${messageSuccess}" id="successAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-exclamation-circle-fill me-2"></i>
+                        <strong>Congratulations!</strong>
+                    </div>
+                    <ul class="list-group list-group-flush mt-2">
+                        <li class="list-group-item text-success bg-transparent border-0">Your offer has been created successfully!</li>
+                    </ul>
+                    <button onclick="dismissMessage()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
+    <script>
+        function dismissMessage() {
+            document.getElementById("successAlert").style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

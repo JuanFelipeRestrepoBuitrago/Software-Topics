@@ -232,6 +232,13 @@ The other fields are set by default or internally in the application.
 ![Create Offer](evidence/Activity%202.png)
 
 ### Activity 3
+The above form should lead to another path where the information from the previous form is collected and the data is stored in the database (validate the information received). In case of success, display a message saying “Element created successfully”.
+
+#### Answer
+
+When the form is submitted, the data is stored in the database and a message is displayed saying "Your offer has been created successfully!".
+
+![Offer Created](evidence/Activity%203.png)
 
 ### Activity 4
 
