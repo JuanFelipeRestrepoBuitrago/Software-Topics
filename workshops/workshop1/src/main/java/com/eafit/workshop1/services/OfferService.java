@@ -76,4 +76,13 @@ public class OfferService {
     public void deleteOffer(Long id) {
         offerRepository.deleteById(id);
     }
+
+    /**
+     * Method that returns all the offers in the database.
+     * 
+     * @return a list with all the offers in the database.
+     */
+    public List<Offer> getAllOffers() {
+        return offerRepository.findAll();
+    }
 }

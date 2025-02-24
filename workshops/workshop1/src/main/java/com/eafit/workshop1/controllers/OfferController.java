@@ -83,6 +83,7 @@ public class OfferController {
     @GetMapping("")
     public String index(Model model) {
         model.addAttribute("title", "Offers - Herzon");
+        model.addAttribute("offers", offerService.getAllOffers());
         return "offers/index";
     }
     
