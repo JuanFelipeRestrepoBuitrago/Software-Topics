@@ -45,6 +45,7 @@ class Offer{
 
 ## Project Structure
 
+```bash
 . \
 ├── .mvn \
 │ ├── wrapper \
@@ -99,6 +100,7 @@ class Offer{
 ├── mvnw.cmd # Maven wrapper. \
 ├── pom.xml # Maven dependencies. \
 └── README.md # Readme file. \
+```
 
 ## Setup Instructions
 
@@ -165,6 +167,7 @@ docker-compose up
 username: root
 password: 123
 ```
+If fails, try to log in again after a few seconds.
 5. Create a new database named `workshop1_teis`
 6. Once you have finished running the project, you can stop the containers by running in the workshop1 folder:
 ```bash
