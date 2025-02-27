@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="~{fragments/head :: head}"></div>
+
+<body>
+    <div th:replace="~{fragments/header :: header}"></div>
+    <div class="container">
+        <h1>Upload Image</h1>
+        <form th:action="@{/image/save}" method="post" enctype="multipart/form-data">
+            <input type="file" name="profile_image" />
+            <button type="submit">Submit</button>
+        </form>
+        <div th:if="${message}">
+            <p th:text="${message}"></p>
+        </div>
+        <div>
+            <img th:src="@{'/uploads/test.png'}" alt="Uploaded Image" />
+        </div>
+    </div>
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+
+</html>
