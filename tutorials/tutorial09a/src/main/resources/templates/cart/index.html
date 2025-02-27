@@ -9,19 +9,9 @@
     <div th:replace="~{fragments/header :: header}"></div>
 
     <div class="container-fluid full-height">
-        <div class="text-left">
-            <h2>Available Products</h2>
-    
-            <ul>
-                <li th:each="entry : ${products}">
-                    <span>Id: <span th:text="${entry.key}"></span> - </span>
-                    <span>Name: <span th:text="${entry.value.name}"></span> - </span>
-                    <span>Price: <span th:text="${entry.value.price}"></span> - </span>
-                    <a th:href="@{'/cart/add/' + ${entry.key}}">Add to cart</a>
-                </li>
-            </ul>
-        
+        <div class="text-left">        
             <h2>Products in Cart</h2>
+            <br>
         
             <ul>
                 <li th:each="entry : ${cartProducts}">

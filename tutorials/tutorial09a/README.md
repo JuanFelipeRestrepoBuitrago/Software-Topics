@@ -11,12 +11,9 @@
     - [Requirements](#requirements)
     - [Execution](#execution)
   - [Activities](#activities)
+    - [Tutorial Evidence](#tutorial-evidence)
     - [Activity 1](#activity-1)
-    - [Activity 2](#activity-2)
-    - [Activity 3](#activity-3)
-    - [Activity 4](#activity-4)
-    - [Activity 5](#activity-5)
-    - [Activity 6](#activity-6)
+      - [Answer](#answer)
   - [Contact](#contact)
 
 
@@ -205,6 +202,17 @@ or in case you don't have maven installed:
 The evidence of the tutorial can be found in the `evidence` folder. I completed all the tutorial and the following evidence is presented as proof:
 
 ![Evidence 1](evidence/evidence_1.png)
+
+### Activity 1
+
+Use the products from the database instead of the products we have hardcoded in the cart class constructor.
+
+#### Answer
+
+I change the page to show the add the products from the database. Available products are shown in the `/products` page instead of /cart page with 2 buttons: `Name of the Product(Show)` and `Add to Cart`. When the user clicks on the `Add to Cart` button, the product is added to the cart and the user is redirected to the `/cart` page. Furthermore, enters a invalid id in the `/cart/add/{id}` page, the user is redirected to the `/cart` page.
+
+![Cart Updated Page](evidence/evidence_2.png)
+![Products Updated Page](evidence/evidence_3.png)
 
 ## Contact
 
