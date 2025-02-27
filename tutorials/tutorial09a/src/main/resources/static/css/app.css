@@ -43,6 +43,12 @@ body {
 
 }
 
+.bg-gray {
+
+    background-color: #919191 !important;
+
+}
+
 
 .img-card {
 
@@ -51,12 +57,6 @@ body {
     object-fit: cover;
 
 } 
-
-.text-primary {
-
-    color: #156d20 !important;
-
-}
 
 
 nav {
@@ -71,14 +71,14 @@ nav {
 }
 
 .btn-primary {
-    background-color: #156d20;
+    background-color: #1abc9c;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
 }
 
 .btn-primary:hover {
-    background-color: #125f1c;
+    background-color: #149279;
 }
 
 .form-control {
