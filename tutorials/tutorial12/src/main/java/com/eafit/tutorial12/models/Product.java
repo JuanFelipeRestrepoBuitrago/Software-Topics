@@ -12,7 +12,7 @@ public class Product {
     private String name;
     
     @NotBlank
-    @Size(min = 1, max = 30)
+    @Size(min = 1, max = 1000)
     private Double price;
 
     public Product() {}
