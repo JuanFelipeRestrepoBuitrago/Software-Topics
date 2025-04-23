@@ -50,12 +50,9 @@ release.properties
 *.stack.yml
 *.env
 *.override.yml
-docker-compose.override.yml
-docker-compose.*.yml
 *.tar
 *.lock
 docker-*.log
-Dockerfile*
 
 # Node.js / JavaScript
 node_modules/

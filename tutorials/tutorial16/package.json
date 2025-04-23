@@ -1,0 +1,14 @@
+{
+  "name": "tutorial16-randomquotes",
+  "version": "1.0.0",
+  "description": "This is the tutorial 16 for the teis at EAFIT for an API Rest with express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Juan Felipe Restrepo Buitrago",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
