@@ -116,7 +116,7 @@ My docker images can be found at [piper04/eafit-teis-tutorial-16-randomquotes](h
 
 I also created an instance of AWS EC2 to run the Docker image. The instance is running Ubuntu 22.04 and has Docker installed. To run the image, follow these steps:
 
-To access the express application, you can use the [link](http://44.210.118.25/) or the ip http://44.210.118.25.
+To access the express application, you can use the [link](http://13.218.27.14/) or the ip 13.218.27.14.
 
 ![AWS EC2](./evidence/evidence_aws.png)
 
